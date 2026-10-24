@@ -45,10 +45,14 @@ export default async function Privacy() {
             доставляется через нашу систему Postal.
           </p>
           <p>
-            Для входа используются необходимые cookies. Аналитики и рекламных
-            трекеров нет. Вы можете удалить маршрут в приложении. Для удаления
-            аккаунта и вопросов напишите на hello@spiderroute.com. Резервные
-            копии хранятся до 30 дней.
+            Для входа используются необходимые cookies. Google Analytics
+            использует cookies для статистики посещений сайта и веб-приложения:
+            просмотров страниц, источников переходов, устройств и примерной
+            географии по IP-адресу. Мы не передаём в аналитику данные аккаунта,
+            координаты, названия маршрутов, заметки или секретные ссылки.
+            Рекламная персонализация отключена. Вы можете удалить маршрут в
+            приложении. Для удаления аккаунта и вопросов напишите на
+            hello@spiderroute.com. Резервные копии хранятся до 30 дней.
           </p>
         </>
       ) : (
@@ -71,10 +75,14 @@ export default async function Privacy() {
             Transactional email is delivered through our Postal system.
           </p>
           <p>
-            We use essential sign-in cookies and no advertising or analytics
-            trackers. Delete routes in the application. For account deletion or
-            questions, contact hello@spiderroute.com. Backups are retained for
-            up to 30 days.
+            We use essential sign-in cookies. Google Analytics uses cookies to
+            measure website and web app visits, page views, referral sources,
+            devices and approximate location derived from IP addresses. We do
+            not send account details, coordinates, route titles, notes or secret
+            sharing links to analytics. Advertising personalization is disabled.
+            Delete routes in the application. For account deletion or questions,
+            contact hello@spiderroute.com. Backups are retained for up to 30
+            days.
           </p>
         </>
       )}

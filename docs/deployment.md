@@ -22,6 +22,14 @@ node scripts/admin.mjs mail-test controlled-mailbox@example.test
 
 A backup is produced using SQLite's consistent backup API. Route geometry, original geometry, annotations and published snapshots are all inside SQLite. The production process runs a consistent daily backup and prunes backups older than 30 days. Configure encrypted off-host copying separately; local backups do not protect against server loss. To restore: stop the application, preserve the failed database for diagnosis, restore the selected backup to `/data/spiderroute.sqlite`, remove only stale WAL/SHM files while stopped, restore ownership, then start and verify health and account/route access. Validate this on a temporary database before replacing production. Back up before releases; code rollback does not undo database migrations.
 
+## Website analytics
+
+GA4 account `12Startups` (`352603117`), property **SpiderRoute Web** (`560640790`), web stream `16197170277`, Google tag `G-D7QRC30XY4`. The shared root layout loads `public/analytics.js` after hydration. Only `spiderroute.com`, `www.spiderroute.com`, `ru.spiderroute.com`, and `app.spiderroute.com` collect data; localhost and preview hosts do not. Cookies use the parent domain so visits across the landing site and app can share a session. Reports use Belarus time (UTC+3). Use the Host name dimension to compare hosts.
+
+This is a Google tag (gtag.js), not a Tag Manager container. Additional Google destinations can be managed from the stream's Google tag settings; future custom events can use the existing `window.gtag` queue. Do not add a second GA tag or send user data with events. Enhanced measurement is disabled to prevent automatic URL/form/link collection. Page views are sent explicitly on initial load and pathname changes, including browser history navigation; query/hash-only changes do not count again. Route IDs and share tokens are replaced with generic page categories, query strings and hashes are omitted, titles are generic, and external referrers retain only the origin. Advertising signals and personalization are disabled; basic geographic/device/acquisition reporting remains available. Keep these safeguards when adding events or enabling enhanced measurements.
+
+Validate a release by checking the Google tag loads on both the landing site and app, that `page_view` requests go to this measurement ID with sanitized URLs, and that GA4 Realtime receives the visits. Standard reports can take 24–48 hours to populate. The web privacy policy describes the collection; the native iOS app is not instrumented by this integration.
+
 ## Telegram registration alerts
 
 Set `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` as runtime-only secrets in Coolify. SpiderRoute reuses TextFaker's IgorCorpBot and destination chat. `TELEGRAM_REGISTRATION_NOTIFICATIONS_ENABLED=false` disables alerts; otherwise configured credentials enable them. Local secrets belong only in ignored `.env.local`.

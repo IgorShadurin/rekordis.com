@@ -1,5 +1,6 @@
 import { ConfirmationProvider } from "@/components/ConfirmationProvider";
 import type { Metadata } from "next";
+import Script from "next/script";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { THEME_KEY, resolveTheme } from "@/lib/theme";
 import { cookies, headers } from "next/headers";
@@ -27,6 +28,7 @@ export default async function RootLayout({
   return (
     <html lang={locale} data-theme={theme}>
       <body>
+        <Script src="/analytics.js" strategy="afterInteractive" />
         <ThemeProvider initialTheme={theme}>
           <ConfirmationProvider>{children}</ConfirmationProvider>
         </ThemeProvider>
