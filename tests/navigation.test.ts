@@ -96,3 +96,49 @@ test("Rekordis landing hosts route to the app and preserve legacy host routing",
     );
   }
 });
+
+test("authentication uses the exact allowed request host, never forwarded input", () => {
+  for (const domain of ["spiderroute.com", "rekordis.com"]) {
+    for (const prefix of ["app."]) {
+      const host = prefix + domain;
+      const response = proxy(
+        new NextRequest(`https://${host}/api/auth/providers`, {
+          headers: {
+            host,
+            "x-forwarded-host": "attacker.test",
+            "x-forwarded-proto": "http",
+          },
+        }),
+      );
+      assert.equal(
+        response.headers.get("x-middleware-request-x-forwarded-host"),
+        host,
+      );
+      assert.equal(
+        response.headers.get("x-middleware-request-x-forwarded-proto"),
+        "https",
+      );
+      assert.equal(response.headers.get("location"), null);
+    }
+  }
+  for (const host of [
+    "evil.test",
+    "app.rekordis.com.evil.test",
+    "app.rekordis.com:9999",
+    "rekordis.com,evil.test",
+  ]) {
+    assert.equal(
+      proxy(
+        new NextRequest("https://evil.test/api/auth/signin/google", {
+          headers: { host, "x-forwarded-host": "app.rekordis.com" },
+        }),
+      ).status,
+      400,
+    );
+  }
+  // Docker health probes remain available without granting a new OAuth origin.
+  assert.equal(
+    proxy(new NextRequest("http://127.0.0.1:3000/api/health")).status,
+    200,
+  );
+});

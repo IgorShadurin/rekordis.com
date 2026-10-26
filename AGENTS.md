@@ -52,6 +52,6 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 ## Rekordis branding and compatibility
 
 - The public product name is Rekordis; keep the existing landing design and directory/file paths.
-- New canonical web URLs use rekordis.com, ru.rekordis.com and app.rekordis.com. The source rebrand is local until explicitly pushed/deployed; see docs/deployment.md.
+- New canonical web URLs use rekordis.com, ru.rekordis.com and app.rekordis.com. Both domain families use one application and database; see docs/deployment.md.
 - Preserve spiderroute.sqlite, Docker service/volume names, local-storage keys, Postal tags and webhook headers. Existing GitHub, OAuth and GA4 resource identities remain valid.
 - Keep hello@spiderroute.com and tiles.spiderroute.com until those services are explicitly migrated. Do not invent replacement mailboxes or rotate credentials as part of branding.

@@ -1,5 +1,19 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { trustedAuthHost } from "./lib/auth-host";
 export function proxy(req: NextRequest) {
+  const origin = trustedAuthHost(
+    req.headers.get("host") || req.nextUrl.host,
+    process.env.NODE_ENV !== "production",
+  );
+  if (!origin && /^\/api\/auth(?:\/|$)/.test(req.nextUrl.pathname))
+    return new NextResponse("Unrecognized authentication host", {
+      status: 400,
+    });
+  const requestHeaders = new Headers(req.headers);
+  requestHeaders.set("x-forwarded-host", origin?.host || "app.rekordis.com");
+  requestHeaders.set("x-forwarded-proto", origin?.protocol || "https");
+  if (req.nextUrl.pathname.startsWith("/api/"))
+    return NextResponse.next({ request: { headers: requestHeaders } });
   const host = (req.headers.get("host") || req.nextUrl.hostname)
     .toLowerCase()
     .split(":")[0]
@@ -46,7 +60,6 @@ export function proxy(req: NextRequest) {
     target.pathname = "/";
     return NextResponse.redirect(target, 307);
   }
-  const requestHeaders = new Headers(req.headers);
   const sharedPathLocale = /^\/s\/[^/]+\/(en|ru)\/?$/.exec(
     req.nextUrl.pathname,
   )?.[1];
@@ -70,4 +83,4 @@ export function proxy(req: NextRequest) {
   }
   return response;
 }
-export const config = { matcher: ["/((?!api|_next|icon.svg).*)"] };
+export const config = { matcher: ["/((?!_next|icon.svg).*)"] };

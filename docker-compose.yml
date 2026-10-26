@@ -3,7 +3,8 @@ services:
     build: .
     restart: unless-stopped
     environment:
-      NEXTAUTH_URL: https://app.rekordis.com
+      # Per-request origins are allowlisted and sanitized by src/proxy.ts.
+      AUTH_TRUST_HOST: "true"
       NEXTAUTH_SECRET: ${NEXTAUTH_SECRET}
       MAP_PROVIDER: ${MAP_PROVIDER:-osm-standard}
       MAP_STYLE_URL: ${MAP_STYLE_URL:-}

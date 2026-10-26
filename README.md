@@ -1,6 +1,6 @@
 # Rekordis
 
-Rekordis is the new product name in this existing repository. The original landing design is retained. This source rebrand is pending deployment; see [migration notes](docs/deployment.md#rekordis-source-rebrand-not-deployed).
+Rekordis is the new product name in this existing repository. The original landing design is retained. Both domain families share one application and database; see [deployment notes](docs/deployment.md#rekordis-and-spiderroute-on-one-application).
 
 Keep the rides you want to do again, and make them easy to share. Rekordis helps you turn a GPS recording into a route a friend can follow: tidy up the track, mark a good stop or a stretch worth remembering, and send a map they can open on their phone without signing in.
 
