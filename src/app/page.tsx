@@ -249,7 +249,7 @@ export default async function Home({ searchParams }: Props) {
                 <p>{t.sourceText}</p>
                 <a
                   className="text-link"
-                  href="https://github.com/IgorShadurin/spiderroute.com"
+                  href="https://github.com/IgorShadurin/rekordis.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

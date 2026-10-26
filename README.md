@@ -1,12 +1,12 @@
 # Rekordis
 
-Rekordis is the new product name in this existing repository. The original landing design is retained. Both domain families share one application and database; see [deployment notes](docs/deployment.md#rekordis-and-spiderroute-on-one-application).
+Rekordis is a route editor for bikes, e-bikes and scooters. Import GPS tracks, refine the route, add notes and video moments, and share maps anyone can open without signing in.
 
 Keep the rides you want to do again, and make them easy to share. Rekordis helps you turn a GPS recording into a route a friend can follow: tidy up the track, mark a good stop or a stretch worth remembering, and send a map they can open on their phone without signing in.
 
 Bring a route from your cycling app or GPS device, or draw one yourself. Add a ride video to connect places on the map with moments in the footage. Your routes stay in your own library until you choose to share them.
 
-[Open Rekordis](https://app.rekordis.com/) · [Visit the website](https://rekordis.com/) · [Русская версия](https://ru.rekordis.com/)
+[Open Rekordis](https://app.rekordis.com/) · [Visit the website](https://rekordis.com/) · [Русская версия](https://ru.rekordis.com/) · [Source on GitHub](https://github.com/IgorShadurin/rekordis.com)
 
 ![The original SpiderRoute interface in English, showing a sample Thames route with a highlighted section and a photo-stop marker](docs/images/spiderroute-en.png)
 
@@ -33,7 +33,7 @@ For example, take a weekend ride you recorded, clean up a misplaced point, mark 
 
 ## For contributors and self-hosters
 
-The source is available here for you to inspect and run yourself. The operational details live in these guides:
+The source is available at [IgorShadurin/rekordis.com](https://github.com/IgorShadurin/rekordis.com) for you to inspect and run yourself. The existing SpiderRoute and Rekordis domains share one application and database. The operational details live in these guides:
 
 - [Security and privacy](docs/security.md) — ownership, public snapshots, link revocation and upload safeguards.
 - [Deployment and backups](docs/deployment.md) — Coolify, domains, persistent storage, health checks and recovery.
