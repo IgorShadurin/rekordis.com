@@ -11,7 +11,7 @@ export async function notifyTelegramRegistration(user: RegistrationNotice) {
   const field = (value: string) =>
     value.replace(/[\r\n\t]/g, " ").slice(0, 300);
   const text = [
-    `[spiderroute.com] 👤 New User Registration${process.env.NODE_ENV === "production" ? "" : " (local)"}`,
+    `[rekordis.com] 👤 New User Registration${process.env.NODE_ENV === "production" ? "" : " (local)"}`,
     "",
     `🆔 User ID: ${user.id}`,
     `📧 Email: ${field(user.email)}`,

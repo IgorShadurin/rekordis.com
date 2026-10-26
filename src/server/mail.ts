@@ -36,7 +36,7 @@ export async function processOutbox() {
               to: [r.recipient],
               from:
                 process.env.POSTAL_FROM_EMAIL ||
-                "SpiderRoute <hello@spiderroute.com>",
+                "Rekordis <hello@spiderroute.com>",
               subject: r.subject,
               plain_body: r.body,
               tag: "spiderroute",

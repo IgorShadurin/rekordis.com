@@ -4,11 +4,11 @@ import { mkdtempSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { normalizeYoutube, routePageTitle } from "../src/lib/route-details";
-test("route document titles collapse whitespace and cap the name at 60 Unicode characters", () => {
-  assert.equal(routePageTitle("  Ride\n  home\t "), "Ride home · SpiderRoute");
+test("route document titles collapse whitespace and cap the complete title at 74 Unicode characters", () => {
+  assert.equal(routePageTitle("  Ride\n  home\t "), "Ride home · Rekordis");
   const title = routePageTitle("🚲".repeat(80));
-  assert.equal(Array.from(title.split(" · ")[0]).length, 60);
-  assert.ok(title.endsWith("… · SpiderRoute"));
+  assert.equal(Array.from(title).length, 74);
+  assert.ok(title.endsWith("… · Rekordis"));
 });
 test("YouTube URL validation normalizes videos and rejects unrelated or executable URLs", () => {
   for (const url of [
@@ -121,12 +121,12 @@ test("video updates persist, validate, update public snapshots, and clone indepe
 test("route titles remove control and direction overrides while retaining plain text", () => {
   assert.equal(
     routePageTitle("  A\u202eB\u0000 C\u200b  "),
-    "AB C · SpiderRoute",
+    "AB C · Rekordis",
   );
-  assert.equal(routePageTitle("Cafe\u0301"), "Café · SpiderRoute");
-  assert.equal(routePageTitle("  \n\t"), "Route · SpiderRoute");
+  assert.equal(routePageTitle("Cafe\u0301"), "Café · Rekordis");
+  assert.equal(routePageTitle("  \n\t"), "Route · Rekordis");
   assert.equal(
     routePageTitle('Ride <test> & "friends"'),
-    'Ride <test> & "friends" · SpiderRoute',
+    'Ride <test> & "friends" · Rekordis',
   );
 });

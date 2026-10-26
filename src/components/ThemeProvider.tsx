@@ -20,11 +20,11 @@ export function ThemeProvider({
     try {
       localStorage.setItem(THEME_KEY, next);
     } catch {}
-    const domain =
-      location.hostname === "spiderroute.com" ||
-      location.hostname.endsWith(".spiderroute.com")
-        ? "; Domain=spiderroute.com"
-        : "";
+    const parentDomain = ["rekordis.com", "spiderroute.com"].find(
+      (host) =>
+        location.hostname === host || location.hostname.endsWith(`.${host}`),
+    );
+    const domain = parentDomain ? `; Domain=${parentDomain}` : "";
     document.cookie = `${THEME_KEY}=${next}; Path=/; Max-Age=31536000${domain}; ${location.protocol === "https:" ? "SameSite=None; Secure" : "SameSite=Lax"}`;
   };
   return (

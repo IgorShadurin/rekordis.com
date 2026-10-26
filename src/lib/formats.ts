@@ -233,7 +233,7 @@ export function exportRoute(
     };
   if (format !== "gpx") throw Error("unsupportedFormat");
   return {
-    body: `<?xml version="1.0" encoding="UTF-8"?><gpx version="1.1" creator="SpiderRoute" xmlns="http://www.topografix.com/GPX/1/1"><trk><name>${esc(title)}</name>${g.map((s) => `<trkseg>${s.map((p) => `<trkpt lat="${p.lat}" lon="${p.lon}">${p.ele !== undefined ? `<ele>${p.ele}</ele>` : ""}${p.time ? `<time>${esc(p.time)}</time>` : ""}</trkpt>`).join("")}</trkseg>`).join("")}</trk></gpx>`,
+    body: `<?xml version="1.0" encoding="UTF-8"?><gpx version="1.1" creator="Rekordis" xmlns="http://www.topografix.com/GPX/1/1"><trk><name>${esc(title)}</name>${g.map((s) => `<trkseg>${s.map((p) => `<trkpt lat="${p.lat}" lon="${p.lon}">${p.ele !== undefined ? `<ele>${p.ele}</ele>` : ""}${p.time ? `<time>${esc(p.time)}</time>` : ""}</trkpt>`).join("")}</trkseg>`).join("")}</trk></gpx>`,
     type: "application/gpx+xml",
     extension: "gpx",
   };

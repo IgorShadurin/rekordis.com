@@ -3,16 +3,16 @@ export const dynamic = "force-dynamic";
 import type { MetadataRoute } from "next";
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
-    "https://spiderroute.com",
-    "https://ru.spiderroute.com",
+    "https://rekordis.com",
+    "https://ru.rekordis.com",
   ].flatMap((origin) =>
     ["", "/privacy"].map((path) => ({
       url: origin + path,
       alternates: {
         languages: {
-          en: "https://spiderroute.com" + path,
-          ru: "https://ru.spiderroute.com" + path,
-          "x-default": "https://spiderroute.com" + path,
+          en: "https://rekordis.com" + path,
+          ru: "https://ru.rekordis.com" + path,
+          "x-default": "https://rekordis.com" + path,
         },
       },
     })),
@@ -22,7 +22,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...publicSetsForSitemap().map((set) => ({
       url: new URL(
         `/sets/shared/${set.token}`,
-        process.env.NEXTAUTH_URL || "https://app.spiderroute.com",
+        process.env.NEXTAUTH_URL || "https://app.rekordis.com",
       ).href,
       lastModified: set.updated_at,
     })),

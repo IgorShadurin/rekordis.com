@@ -18,7 +18,7 @@ const set: ItemSet = {
   items: [],
 };
 test("automatic set metadata stays useful without advanced settings and tracks content", () => {
-  assert.equal(setSeoTitle(set), "Weekend kit · SpiderRoute");
+  assert.equal(setSeoTitle(set), "Weekend kit · Rekordis");
   assert.match(setDescription(set), /Weekend kit.*collection/);
   assert.equal(
     setDescription({ ...set, description: "  A useful\n  collection. " }),
@@ -30,7 +30,7 @@ test("automatic set metadata stays useful without advanced settings and tracks c
   );
   assert.equal(
     setSeoTitle({ ...set, title: "Updated kit" }),
-    "Updated kit · SpiderRoute",
+    "Updated kit · Rekordis",
   );
   assert.ok(
     setSeoTitle({ ...set, title: "Long title ".repeat(20) }).length <= 70,

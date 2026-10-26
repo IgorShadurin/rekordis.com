@@ -56,7 +56,7 @@ test("new registrations notify Telegram with committed non-demo totals and toler
       "first",
       "en",
     );
-    assert.match(messages[0].text, /\[spiderroute.com\]/);
+    assert.match(messages[0].text, /\[rekordis.com\]/);
     assert.match(messages[0].text, /Email: first@example.test/);
     assert.match(messages[0].text, /Name: First 👥 Fake total/);
     assert.match(messages[0].text, /Total registered users: 1$/);

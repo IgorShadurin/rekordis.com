@@ -274,8 +274,8 @@ export function PublicSetContent({
         </div>
         <footer className="sets-footer">
           {ru
-            ? "Собрано и опубликовано в SpiderRoute"
-            : "Collected and shared with SpiderRoute"}
+            ? "Собрано и опубликовано в Rekordis"
+            : "Collected and shared with Rekordis"}
         </footer>
       </main>
       {!active && toast}

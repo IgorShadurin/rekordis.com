@@ -23,7 +23,7 @@ export async function dailyBackup() {
   try {
     const fs = statfsSync(dataDir);
     if (fs.bavail * fs.bsize < 1024 * 1024 * 1024) {
-      console.error("SpiderRoute: less than 1 GiB disk space remains");
+      console.error("Rekordis: less than 1 GiB disk space remains");
       return;
     }
     await sql.backup(target);
@@ -34,7 +34,7 @@ export async function dailyBackup() {
       )
         unlinkSync(join(directory, f));
   } catch {
-    console.error("SpiderRoute: daily backup failed");
+    console.error("Rekordis: daily backup failed");
   } finally {
     backingUp = false;
   }

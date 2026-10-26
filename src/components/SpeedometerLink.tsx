@@ -11,8 +11,8 @@ export function SpeedometerLink({
 }) {
   const label =
     locale === "ru"
-      ? "Bike Tracker SpiderRoute — GPS-трекер в App Store"
-      : "Bike Tracker SpiderRoute — GPS Tracker on the App Store";
+      ? "Bike Tracker Rekordis — GPS-трекер в App Store"
+      : "Bike Tracker Rekordis — GPS Tracker on the App Store";
   return (
     <a
       className={
@@ -27,7 +27,7 @@ export function SpeedometerLink({
       <Smartphone size={19} aria-hidden="true" />
       {!compact && (
         <>
-          Bike Tracker SpiderRoute <ArrowUpRight size={15} aria-hidden="true" />
+          Bike Tracker Rekordis <ArrowUpRight size={15} aria-hidden="true" />
         </>
       )}
     </a>

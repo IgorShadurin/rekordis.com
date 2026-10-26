@@ -48,3 +48,10 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Sharing URLs belong in read-only inputs with an accessible copy icon inside. Put the default PNG download and a PNG/JPEG/SVG format dropdown directly below the QR; use `ShareButton` on public pages. Place markers use the ten stored icon keys and a raised circle with a thin stem, leaving the route visible. Keep marker DOM stable across selection changes and synchronize the place hash before opening details.
 
 - Keep modal headers rounded to match their parent surface; check sticky headers and scrollbar corners. QR placeholders use a fixed-size loading indicator, reveal only a decoded image, and keep generated assets for repeat opening. Native selects reserve 46px for an 18px chevron inset 14px from the right; split-button dropdown triggers need at least 40px width. Public route actions stay compact: Share, Favorite, then an overflow menu for downloads and copying. Guest favorites open the sign-in dialog and resume after authentication. Hide empty public-only sections.
+
+## Rekordis branding and compatibility
+
+- The public product name is Rekordis; keep the existing landing design and directory/file paths.
+- New canonical web URLs use rekordis.com, ru.rekordis.com and app.rekordis.com. The source rebrand is local until explicitly pushed/deployed; see docs/deployment.md.
+- Preserve spiderroute.sqlite, Docker service/volume names, local-storage keys, Postal tags and webhook headers. Existing GitHub, OAuth and GA4 resource identities remain valid.
+- Keep hello@spiderroute.com and tiles.spiderroute.com until those services are explicitly migrated. Do not invent replacement mailboxes or rotate credentials as part of branding.

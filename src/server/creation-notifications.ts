@@ -23,7 +23,7 @@ export async function notifyCreation(
       value.replace(/[\r\n\t]/g, " ").slice(0, 300);
     await sendTelegram(
       [
-        `[spiderroute.com] ${kind === "route" ? "🗺 New Route" : "🧺 New Set"}${process.env.NODE_ENV === "production" ? "" : " (local)"}`,
+        `[rekordis.com] ${kind === "route" ? "🗺 New Route" : "🧺 New Set"}${process.env.NODE_ENV === "production" ? "" : " (local)"}`,
         "",
         `Title: ${field(item.title)}`,
         `Name: ${field(user.name)}`,

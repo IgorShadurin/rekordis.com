@@ -5,13 +5,13 @@ export async function generateMetadata() {
   return {
     title: ru ? "Конфиденциальность" : "Privacy",
     description: ru
-      ? "Как SpiderRoute хранит маршруты, обрабатывает данные аккаунта и предоставляет доступ по ссылке."
-      : "How SpiderRoute stores routes, handles account data and shares routes by link.",
+      ? "Как Rekordis хранит маршруты, обрабатывает данные аккаунта и предоставляет доступ по ссылке."
+      : "How Rekordis stores routes, handles account data and shares routes by link.",
     alternates: {
-      canonical: `${ru ? "https://ru.spiderroute.com" : "https://spiderroute.com"}/privacy`,
+      canonical: `${ru ? "https://ru.rekordis.com" : "https://rekordis.com"}/privacy`,
       languages: {
-        en: "https://spiderroute.com/privacy",
-        ru: "https://ru.spiderroute.com/privacy",
+        en: "https://rekordis.com/privacy",
+        ru: "https://ru.rekordis.com/privacy",
       },
     },
   };

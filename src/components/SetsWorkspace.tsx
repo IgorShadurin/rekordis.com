@@ -1357,7 +1357,7 @@ function SetSeoDialog({
               : "Use automatic title and description"}
           </button>
           <div className="set-seo-preview">
-            <span>SpiderRoute</span>
+            <span>Rekordis</span>
             <strong>{setSeoTitle(preview)}</strong>
             <p>{setDescription(preview)}</p>
           </div>

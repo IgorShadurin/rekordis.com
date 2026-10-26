@@ -2,7 +2,7 @@ import type { Locale } from "./types";
 export const messages = {
   en: {
     tagline: "Bike and scooter routes.",
-    open: "Open SpiderRoute",
+    open: "Open Rekordis",
     privacy: "Privacy",
     mapCredit: "Map data © OpenStreetMap contributors",
     library: "Your routes",
@@ -106,7 +106,7 @@ export const messages = {
     unavailable: "This route is no longer shared.",
     unavailableText: "The owner may have made it private or deleted it.",
     back: "Back to routes",
-    backSite: "Back to SpiderRoute",
+    backSite: "Back to Rekordis",
     signForCopy: "Sign in to save a copy",
     editedWarning:
       "Changed points no longer carry recorded elevation, time, or speed.",
@@ -145,13 +145,13 @@ export const messages = {
     publishWarning:
       "This link makes the preview public. Notes and route names can also reveal personal information.",
     confirm: "Confirm",
-    welcome: "Welcome to SpiderRoute",
+    welcome: "Welcome to Rekordis",
     welcomeBody:
       "Your routes have a home. Import a route and make it yours. Everything stays private until you share it.",
   },
   ru: {
     tagline: "Маршруты для поездок на велосипеде и самокате.",
-    open: "Открыть SpiderRoute",
+    open: "Открыть Rekordis",
     privacy: "Конфиденциальность",
     mapCredit: "Данные карты © участники OpenStreetMap",
     library: "Ваши маршруты",
@@ -293,7 +293,7 @@ export const messages = {
     publishWarning:
       "По этой ссылке предпросмотр станет публичным. Заметки и название тоже могут раскрывать личную информацию.",
     confirm: "Подтвердить",
-    welcome: "Добро пожаловать в SpiderRoute",
+    welcome: "Добро пожаловать в Rekordis",
     welcomeBody:
       "У ваших маршрутов появился дом. Загрузите маршрут и настройте его. Всё остаётся приватным, пока вы не поделитесь.",
   },

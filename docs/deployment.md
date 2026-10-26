@@ -1,6 +1,16 @@
 # Deployment and backups
 
-[Back to SpiderRoute](../README.md)
+[Back to Rekordis](../README.md)
+
+## Rekordis source rebrand (not deployed)
+
+The application source now uses Rekordis branding and canonical `rekordis.com`, `ru.rekordis.com`, and `app.rekordis.com` URLs. The original landing layout and existing repository/file paths are retained. This local rebrand has not been pushed or deployed. The separately deployed static Rekordis page remains live until an explicit rollout replaces it.
+
+Before deploying this web app on Rekordis, attach all new web hostnames to this application, configure DNS/TLS, update `NEXTAUTH_URL` and OAuth provider allowlists/callbacks for `https://app.rekordis.com`, and verify the shared-route, sign-in and privacy paths. The legacy SpiderRoute hosts are still recognized. Keep their existing credentials and certificate renewal configuration until migration is verified.
+
+Keep `spiderroute.sqlite`, the Compose service/volume names, saved language/theme keys, and Postal tags/webhook headers for compatibility. The verified support/sender address stays `hello@spiderroute.com`; the tile host stays `tiles.spiderroute.com`. The GitHub repository, existing OAuth project/client and GA4 property identities remain unchanged. Analytics accepts both domain families and scopes cookies to the matching parent domain.
+
+The operational details below describe the existing SpiderRoute deployment and external resources, not a completed Rekordis infrastructure migration.
 
 The existing Coolify application is connected to the installed GitHub App for this public repository, with automatic deployment enabled for `main`. Pushes trigger the App's signed webhook; no separate repository webhook or deployment credential belongs in the source tree. After a push, confirm that Coolify's webhook-triggered deployment matches the commit, finishes successfully, and serves `/api/health` over HTTPS. Also verify that account routes survive the rollout on the persistent volume. GitHub Actions checks run separately; automatic deployment does not wait for CI, so run the required checks and review outgoing commits before pushing to `main`.
 

@@ -107,8 +107,8 @@ export function AccountSettings({
               </label>
               <p id="account-language-help" className="subtle">
                 {ru
-                  ? "Язык интерфейса и писем от SpiderRoute."
-                  : "The language for the app and emails from SpiderRoute."}
+                  ? "Язык интерфейса и писем от Rekordis."
+                  : "The language for the app and emails from Rekordis."}
               </p>
               <select
                 id="account-language"

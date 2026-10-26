@@ -9,17 +9,14 @@ test("private route URLs and legacy navigation resolve without affecting public 
   const id = "5753521f-d07d-4ba0-b01d-19ddf98f5726";
   assert.equal(privateRoutePath(id), `/r/${id}`);
   for (const path of [`/r/${id}`, `/workspace?lang=ru&route=${id}`]) {
-    assert.equal(
-      routeIdFromUrl(new URL(path, "https://app.spiderroute.com")),
-      id,
-    );
+    assert.equal(routeIdFromUrl(new URL(path, "https://app.rekordis.com")), id);
   }
   assert.equal(
-    routeIdFromUrl(new URL("https://app.spiderroute.com/workspace")),
+    routeIdFromUrl(new URL("https://app.rekordis.com/workspace")),
     null,
   );
   assert.equal(
-    routeIdFromUrl(new URL("https://app.spiderroute.com/s/abc?route=bad")),
+    routeIdFromUrl(new URL("https://app.rekordis.com/s/abc?route=bad")),
     null,
   );
   const shared = sharePath("abcdefghijklmnop", "ru");
@@ -29,15 +26,15 @@ test("private route URLs and legacy navigation resolve without affecting public 
 
 test("old private URLs redirect to clean paths while shared language stays intact", () => {
   for (const path of ["/workspace?route=abc&lang=ru", "/r/abc?lang=en"]) {
-    const result = proxy(new NextRequest(`https://app.spiderroute.com${path}`));
+    const result = proxy(new NextRequest(`https://app.rekordis.com${path}`));
     assert.equal(result.status, 307);
     assert.equal(
       result.headers.get("location"),
-      "https://app.spiderroute.com/r/abc",
+      "https://app.rekordis.com/r/abc",
     );
   }
   const result = proxy(
-    new NextRequest("https://app.spiderroute.com/s/abcdefghijklmnop?lang=ru"),
+    new NextRequest("https://app.rekordis.com/s/abcdefghijklmnop?lang=ru"),
   );
   assert.equal(result.headers.get("location"), null);
   assert.equal(
@@ -54,25 +51,48 @@ test("app workspace redirects home while keeping authentication and old route li
     "?lang=ru",
   ]) {
     const result = proxy(
-      new NextRequest(`https://app.spiderroute.com/workspace${suffix}`),
+      new NextRequest(`https://app.rekordis.com/workspace${suffix}`),
     );
     assert.equal(
       result.headers.get("location"),
-      `https://app.spiderroute.com/${suffix}`,
+      `https://app.rekordis.com/${suffix}`,
     );
   }
   for (const address of [
-    "https://app.spiderroute.com/",
-    "https://spiderroute.com/",
+    "https://app.rekordis.com/",
+    "https://rekordis.com/",
     "http://localhost:3210/workspace",
   ]) {
     assert.equal(proxy(new NextRequest(address)).headers.get("location"), null);
   }
   const result = proxy(
-    new NextRequest("https://app.spiderroute.com/s/abcdefghijklmnop/ru"),
+    new NextRequest("https://app.rekordis.com/s/abcdefghijklmnop/ru"),
   );
   assert.equal(
     result.headers.get("x-middleware-request-x-spiderroute-locale"),
     "ru",
   );
+});
+
+test("Rekordis landing hosts route to the app and preserve legacy host routing", () => {
+  for (const domain of ["rekordis.com", "spiderroute.com"]) {
+    const www = proxy(new NextRequest(`https://www.${domain}/privacy?lang=ru`));
+    assert.equal(
+      www.headers.get("location"),
+      "https://rekordis.com/privacy?lang=ru",
+    );
+    const ru = proxy(
+      new NextRequest(`https://ru.${domain}/s/abcdefghijklmnop/en`),
+    );
+    assert.equal(
+      ru.headers.get("location"),
+      "https://app.rekordis.com/s/abcdefghijklmnop/en?lang=ru",
+    );
+    assert.equal(
+      proxy(
+        new NextRequest(`https://${domain}.evil.test/settings`),
+      ).headers.get("location"),
+      null,
+    );
+  }
 });

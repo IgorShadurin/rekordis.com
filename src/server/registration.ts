@@ -8,12 +8,12 @@ export function welcomeEmail(value: unknown) {
   return {
     subject:
       locale === "ru"
-        ? "Добро пожаловать в SpiderRoute"
-        : "Welcome to SpiderRoute",
+        ? "Добро пожаловать в Rekordis"
+        : "Welcome to Rekordis",
     body:
       locale === "ru"
-        ? "Добро пожаловать в SpiderRoute!\n\nЗагрузите GPS-трек, отредактируйте маршрут, добавьте заметки и поделитесь картой с друзьями.\n\nОткрыть редактор: https://app.spiderroute.com/"
-        : "Welcome to SpiderRoute!\n\nUpload a GPS track, edit your route, add notes and share a map with friends.\n\nOpen the editor: https://app.spiderroute.com/",
+        ? "Добро пожаловать в Rekordis!\n\nЗагрузите GPS-трек, отредактируйте маршрут, добавьте заметки и поделитесь картой с друзьями.\n\nОткрыть редактор: https://app.rekordis.com/"
+        : "Welcome to Rekordis!\n\nUpload a GPS track, edit your route, add notes and share a map with friends.\n\nOpen the editor: https://app.rekordis.com/",
   };
 }
 export async function registerOAuthUser(

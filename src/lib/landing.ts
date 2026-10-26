@@ -1,12 +1,12 @@
 export const landingCopy = {
   en: {
-    title: "Bike & Scooter Route Map and GPX Editor | SpiderRoute",
+    title: "Bike & Scooter Route Map and GPX Editor | Rekordis",
     description:
       "View, edit and share bike, e-bike and scooter routes on a map. Import a GPS track, fix the line, add ride notes and hide your start and finish before sharing.",
     eyebrow: "FOR BIKES, E-BIKES & SCOOTERS",
     hero: ["Ride your", "own line."],
     intro:
-      "SpiderRoute is an open-source route editor. Upload a ride from your GPS app, adjust the track, mark useful stops and share a map that opens on any phone.",
+      "Rekordis is an open-source route editor. Upload a ride from your GPS app, adjust the track, mark useful stops and share a map that opens on any phone.",
     open: "Open route editor",
     shortOpen: "Open app",
     mapTitle: "Along the Thames",
@@ -46,11 +46,11 @@ export const landingCopy = {
     ],
     sourceTitle: "Open source on GitHub",
     sourceText:
-      "Explore how SpiderRoute works, report an issue or contribute an improvement. The project’s source code is public.",
+      "Explore how Rekordis works, report an issue or contribute an improvement. The project’s source code is public.",
     sourceLink: "View the source on GitHub",
     formatsTitle: "Use the track you already recorded.",
     formatsIntro:
-      "Export your ride from Bike Tracker SpiderRoute or another recording app, then upload the file to SpiderRoute. You can download your edited route in these formats too.",
+      "Export your ride from Bike Tracker Rekordis or another recording app, then upload the file to Rekordis. You can download your edited route in these formats too.",
     formats: [
       {
         name: "GPX",
@@ -79,7 +79,7 @@ export const landingCopy = {
       {
         question: "Can I draw a route without a GPS file?",
         answer:
-          "Yes. Add points on the map and edit the line yourself. SpiderRoute does not automatically snap to roads, calculate bike-safe routes or provide turn-by-turn navigation.",
+          "Yes. Add points on the map and edit the line yourself. Rekordis does not automatically snap to roads, calculate bike-safe routes or provide turn-by-turn navigation.",
       },
       {
         question: "Can I use it for scooter and e-bike rides?",
@@ -97,13 +97,13 @@ export const landingCopy = {
     privacy: "Privacy",
   },
   ru: {
-    title: "Карта веломаршрутов и поездок на самокате — SpiderRoute",
+    title: "Карта веломаршрутов и поездок на самокате — Rekordis",
     description:
       "Просматривайте, редактируйте и делитесь маршрутами велосипеда, электровелосипеда и самоката. Загрузите GPS-трек, добавьте заметки и скройте начало и конец поездки.",
     eyebrow: "ВЕЛОСИПЕДЫ, ЭЛЕКТРОВЕЛОСИПЕДЫ И САМОКАТЫ",
     hero: ["Ваши поездки.", "На одной карте."],
     intro:
-      "SpiderRoute — редактор маршрутов с открытым исходным кодом. Загрузите поездку из GPS-приложения, исправьте трек, отметьте полезные остановки и поделитесь картой, которая откроется на любом телефоне.",
+      "Rekordis — редактор маршрутов с открытым исходным кодом. Загрузите поездку из GPS-приложения, исправьте трек, отметьте полезные остановки и поделитесь картой, которая откроется на любом телефоне.",
     open: "Открыть редактор",
     shortOpen: "Открыть",
     mapTitle: "Вдоль Москвы-реки",
@@ -143,11 +143,11 @@ export const landingCopy = {
     ],
     sourceTitle: "Открытый исходный код на GitHub",
     sourceText:
-      "Посмотрите, как устроен SpiderRoute, сообщите об ошибке или предложите улучшение. Исходный код проекта доступен всем.",
+      "Посмотрите, как устроен Rekordis, сообщите об ошибке или предложите улучшение. Исходный код проекта доступен всем.",
     sourceLink: "Посмотреть код на GitHub",
     formatsTitle: "Используйте уже записанный трек.",
     formatsIntro:
-      "Экспортируйте поездку из Bike Tracker SpiderRoute или другого приложения для записи маршрутов и загрузите файл в SpiderRoute. Отредактированный маршрут можно скачать в этих же форматах.",
+      "Экспортируйте поездку из Bike Tracker Rekordis или другого приложения для записи маршрутов и загрузите файл в Rekordis. Отредактированный маршрут можно скачать в этих же форматах.",
     formats: [
       {
         name: "GPX",
@@ -176,7 +176,7 @@ export const landingCopy = {
       {
         question: "Можно нарисовать маршрут без GPS-файла?",
         answer:
-          "Да. Добавляйте точки на карту и редактируйте линию вручную. SpiderRoute не привязывает точки к дорогам автоматически, не подбирает безопасный веломаршрут и не даёт пошаговых указаний для навигации.",
+          "Да. Добавляйте точки на карту и редактируйте линию вручную. Rekordis не привязывает точки к дорогам автоматически, не подбирает безопасный веломаршрут и не даёт пошаговых указаний для навигации.",
       },
       {
         question: "Подойдёт для самоката и электровелосипеда?",

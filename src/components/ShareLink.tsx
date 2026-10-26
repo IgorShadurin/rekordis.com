@@ -8,7 +8,7 @@ import { CopyField } from "./CopyField";
 export function ShareLink({
   url,
   locale,
-  name = "spiderroute",
+  name = "rekordis",
   children,
   title,
   description,
@@ -109,7 +109,7 @@ export function ShareLink({
       if (jpegUrl) URL.revokeObjectURL(jpegUrl);
     };
   }, [url]);
-  const filename = `${name.replace(/[^\p{L}\p{N}_-]+/gu, "-").slice(0, 70) || "spiderroute"}-qr`;
+  const filename = `${name.replace(/[^\p{L}\p{N}_-]+/gu, "-").slice(0, 70) || "rekordis"}-qr`;
   return (
     <section
       className="share-kit"

@@ -76,7 +76,7 @@ test("registration atomically saves the selected language and sends localized we
       assert.equal(mail.subject, welcomeEmail(locale).subject);
       assert.equal(mail.plain_body, welcomeEmail(locale).body);
       assert.deepEqual(mail.plain_body.match(/https:\/\/\S+/g), [
-        "https://app.spiderroute.com/",
+        "https://app.rekordis.com/",
       ]);
     }
     await processOutbox();

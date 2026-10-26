@@ -4,7 +4,7 @@ import { runInNewContext } from "node:vm";
 import test from "node:test";
 
 const source = readFileSync("public/analytics.js", "utf8");
-function browser(host = "app.spiderroute.com") {
+function browser(host = "app.rekordis.com") {
   const location = { hostname: host, origin: `https://${host}`, pathname: "/" };
   const scripts: Record<string, unknown>[] = [];
   const events: Record<string, () => void> = {};
@@ -43,10 +43,10 @@ function browser(host = "app.spiderroute.com") {
 }
 test("analytics shares one tag across production hosts and skips local/preview hosts", () => {
   for (const host of [
-    "spiderroute.com",
-    "app.spiderroute.com",
-    "ru.spiderroute.com",
-    "www.spiderroute.com",
+    "rekordis.com",
+    "app.rekordis.com",
+    "ru.rekordis.com",
+    "www.rekordis.com",
   ]) {
     const b = browser(host);
     assert.equal(b.scripts.length, 1);
@@ -58,7 +58,7 @@ test("analytics shares one tag across production hosts and skips local/preview h
   for (const host of [
     "localhost",
     "preview.example.com",
-    "spiderroute.com.evil.test",
+    "rekordis.com.evil.test",
   ]) {
     assert.equal(browser(host).scripts.length, 0);
   }
@@ -77,15 +77,15 @@ test("SPA views redact private IDs, query, hash, referrer paths and avoid duplic
   assert.equal(b.views().length, 4);
   assert.equal(
     b.views()[1][2].page_location,
-    "https://app.spiderroute.com/r/route",
+    "https://app.rekordis.com/r/route",
   );
   assert.equal(
     b.views()[2][2].page_location,
-    "https://app.spiderroute.com/s/shared-route",
+    "https://app.rekordis.com/s/shared-route",
   );
   assert.equal(
     b.views()[3][2].page_location,
-    "https://app.spiderroute.com/sets/shared/collection",
+    "https://app.rekordis.com/sets/shared/collection",
   );
   assert.equal(b.views()[0][2].page_referrer, "https://example.com/");
   assert.doesNotMatch(
@@ -95,4 +95,16 @@ test("SPA views redact private IDs, query, hash, referrer paths and avoid duplic
   b.location.pathname = "/settings";
   b.events.popstate();
   assert.equal(b.views().length, 5);
+});
+
+test("analytics uses the matching parent domain and Rekordis titles", () => {
+  for (const domain of ["rekordis.com", "spiderroute.com"]) {
+    const b = browser(`app.${domain}`);
+    const config = b.window.dataLayer.find(
+      (entry: any) => entry[0] === "config",
+    );
+    assert.equal(config[2].cookie_domain, domain);
+    assert.equal(b.views()[0][2].page_title, "Rekordis /");
+    assert.equal(browser(`app.${domain}.evil.test`).scripts.length, 0);
+  }
 });

@@ -30,7 +30,7 @@ test("shared metadata localizes page and social previews without exposing route 
     assert.equal(metadata.openGraph?.description, metadata.description);
     assert.equal(
       metadata.alternates?.canonical,
-      `https://${locale === "ru" ? "ru." : ""}spiderroute.com/example-token`,
+      `https://${locale === "ru" ? "ru." : ""}rekordis.com/example-token`,
     );
     assert.deepEqual(metadata.robots, { index: false, follow: false });
     assert.equal(/[А-Яа-я]/.test(metadata.description!), locale === "ru");
@@ -39,7 +39,7 @@ test("shared metadata localizes page and social previews without exposing route 
 
 test("short links preserve explicit language and only safe internal share return URLs", () => {
   const code = "AbCdEfGh01234567";
-  assert.equal(shareUrl(code, "ru"), `https://ru.spiderroute.com/${code}`);
+  assert.equal(shareUrl(code, "ru"), `https://ru.rekordis.com/${code}`);
   assert.equal(safeShareReturn(`/s/${code}?lang=en`), `/s/${code}?lang=en`);
   assert.equal(
     safeShareReturn(`/s/${"x".repeat(32)}?lang=ru`),
@@ -66,11 +66,11 @@ test("public share links round-trip their language through the hostname", () => 
     assert.equal(url.search, "");
     assert.equal(shareLocale(undefined, url.host), locale);
   }
-  assert.equal(shareLocale(undefined, "ru.spiderroute.com:3218"), "ru");
-  assert.equal(shareLocale("en", "ru.spiderroute.com"), "en");
-  assert.equal(shareLocale("ru", "spiderroute.com"), "ru");
-  assert.equal(shareLocale("de", "ru.spiderroute.com"), "ru");
-  assert.equal(shareLocale(undefined, "ru.spiderroute.com.evil.test"), "en");
+  assert.equal(shareLocale(undefined, "ru.rekordis.com:3218"), "ru");
+  assert.equal(shareLocale("en", "ru.rekordis.com"), "en");
+  assert.equal(shareLocale("ru", "rekordis.com"), "ru");
+  assert.equal(shareLocale("de", "ru.rekordis.com"), "ru");
+  assert.equal(shareLocale(undefined, "ru.rekordis.com.evil.test"), "en");
 });
 
 test("shared page and social titles use the bounded public route name", () => {
@@ -91,7 +91,7 @@ test("shared page and social titles use the bounded public route name", () => {
       assert.ok(Array.from(title).length <= 70);
       assert.ok(title.endsWith("…" + suffix));
       assert.ok(Array.from(long.description!).length <= 160);
-      assert.ok(!title.includes("SpiderRoute"));
+      assert.ok(!title.includes("Rekordis"));
     }
     const short = sharedMetadata("abcdefghijklmnop", locale, "Morning ride");
     assert.deepEqual(short.title, { absolute: "Morning ride" + suffix });
@@ -111,4 +111,9 @@ test("shared SEO fields agree across locales and refer to the public name", () =
     assert.deepEqual(metadata.openGraph?.images, metadata.twitter?.images);
     assert.equal((metadata.twitter as { card: string }).card, "summary");
   }
+});
+
+test("legacy Russian hosts keep their language after the rebrand", () => {
+  assert.equal(shareLocale(undefined, "ru.spiderroute.com"), "ru");
+  assert.equal(shareLocale(undefined, "ru.spiderroute.com.evil.test"), "en");
 });

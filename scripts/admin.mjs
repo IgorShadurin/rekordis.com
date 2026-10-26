@@ -34,8 +34,8 @@ if (command === "demo") {
   ).run(
     randomUUID(),
     arg,
-    "SpiderRoute delivery test",
-    "This is the requested SpiderRoute transactional email delivery test. No route data is included.",
+    "Rekordis delivery test",
+    "This is the requested Rekordis transactional email delivery test. No route data is included.",
     new Date().toISOString(),
   );
   console.log("Test queued");

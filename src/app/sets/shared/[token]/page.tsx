@@ -17,7 +17,7 @@ const read = cache((token: string) => {
     notFound();
   }
 });
-const origin = () => process.env.NEXTAUTH_URL || "https://app.spiderroute.com";
+const origin = () => process.env.NEXTAUTH_URL || "https://app.rekordis.com";
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { token } = await params;
   const set = read(token);

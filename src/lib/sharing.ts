@@ -7,7 +7,9 @@ export function shareLocale(
   host?: string,
 ): Locale {
   if (value === "ru" || value === "en") return value;
-  return host?.toLowerCase().split(":")[0] === "ru.spiderroute.com"
+  return ["ru.rekordis.com", "ru.spiderroute.com"].includes(
+    host?.toLowerCase().split(":")[0] || "",
+  )
     ? "ru"
     : "en";
 }
@@ -17,7 +19,7 @@ export function sharePath(token: string, locale: Locale): string {
 }
 
 export function shareUrl(token: string, locale: Locale): string {
-  const host = locale === "ru" ? "ru.spiderroute.com" : "spiderroute.com";
+  const host = locale === "ru" ? "ru.rekordis.com" : "rekordis.com";
   return `https://${host}/${encodeURIComponent(token)}`;
 }
 export function safeShareReturn(value: string | null): string | undefined {
@@ -45,10 +47,10 @@ export function sharedMetadata(
     : `Cycling route “${routeName}”: map, ride notes and GPS track. Explore the route, download the track or save a copy.`;
   const url = shareUrl(token, locale);
   const image = {
-    url: "https://spiderroute.com/icon.png",
+    url: "https://rekordis.com/icon.png",
     width: 512,
     height: 512,
-    alt: ru ? "Логотип SpiderRoute" : "SpiderRoute logo",
+    alt: ru ? "Логотип Rekordis" : "Rekordis logo",
   };
   return {
     title: { absolute: title },
@@ -68,7 +70,7 @@ export function sharedMetadata(
       title,
       description,
       url,
-      siteName: "SpiderRoute",
+      siteName: "Rekordis",
       locale: ru ? "ru_RU" : "en_US",
       alternateLocale: ru ? "en_US" : "ru_RU",
       images: [image],

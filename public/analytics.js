@@ -5,6 +5,10 @@
     "www.spiderroute.com",
     "ru.spiderroute.com",
     "app.spiderroute.com",
+    "rekordis.com",
+    "www.rekordis.com",
+    "ru.rekordis.com",
+    "app.rekordis.com",
   ];
   if (!hosts.includes(location.hostname) || window.spiderRouteAnalytics) return;
   window.spiderRouteAnalytics = true;
@@ -45,7 +49,7 @@
     const page = {
       page_location: location.origin + safePath(path),
       page_referrer: referrer,
-      page_title: "SpiderRoute " + safePath(path),
+      page_title: "Rekordis " + safePath(path),
     };
     // Set defaults too, so automatic engagement events use the same safe values.
     gtag("set", page);
@@ -56,11 +60,15 @@
   gtag("set", {
     page_location: location.origin + safePath(location.pathname),
     page_referrer: referrer,
-    page_title: "SpiderRoute " + safePath(location.pathname),
+    page_title: "Rekordis " + safePath(location.pathname),
   });
   gtag("config", measurementId, {
     send_page_view: false,
-    cookie_domain: "spiderroute.com",
+    cookie_domain:
+      location.hostname === "spiderroute.com" ||
+      location.hostname.endsWith(".spiderroute.com")
+        ? "spiderroute.com"
+        : "rekordis.com",
     cookie_flags: "SameSite=Lax;Secure",
     allow_google_signals: false,
     allow_ad_personalization_signals: false,

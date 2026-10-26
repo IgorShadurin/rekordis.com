@@ -27,8 +27,8 @@ export async function workspaceMetadata(routeId?: string) {
     account.locale ?? resolveLocale((await cookies()).get(LANGUAGE_KEY)?.value);
   let title =
     locale === "ru"
-      ? "Ваши маршруты · SpiderRoute"
-      : "Your routes · SpiderRoute";
+      ? "Ваши маршруты · Rekordis"
+      : "Your routes · Rekordis";
   if (routeId && account.id) {
     try {
       title = routePageTitle(owned(routeId, account.id).title);

@@ -38,16 +38,16 @@ export async function generateMetadata({
   const { locale, t, host } = await landingContext(searchParams);
   if (host.startsWith("app.")) return workspaceMetadata();
   const url =
-    locale === "ru" ? "https://ru.spiderroute.com" : "https://spiderroute.com";
+    locale === "ru" ? "https://ru.rekordis.com" : "https://rekordis.com";
   return {
     title: { absolute: t.title },
     description: t.description,
     alternates: {
       canonical: url,
       languages: {
-        en: "https://spiderroute.com",
-        ru: "https://ru.spiderroute.com",
-        "x-default": "https://spiderroute.com",
+        en: "https://rekordis.com",
+        ru: "https://ru.rekordis.com",
+        "x-default": "https://rekordis.com",
       },
     },
     robots: host.startsWith("app.")
@@ -56,7 +56,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       url,
-      siteName: "SpiderRoute",
+      siteName: "Rekordis",
       title: t.title,
       description: t.description,
       locale: locale === "ru" ? "ru_RU" : "en_US",
@@ -87,8 +87,8 @@ export default async function Home({ searchParams }: Props) {
   }
   const app = local
     ? `/workspace?lang=${locale}`
-    : `https://app.spiderroute.com/?lang=${locale}`;
-  const url = ru ? "https://ru.spiderroute.com" : "https://spiderroute.com";
+    : `https://app.rekordis.com/?lang=${locale}`;
+  const url = ru ? "https://ru.rekordis.com" : "https://rekordis.com";
   const icons = [PencilLine, MapPin, ShieldCheck, Copy, Video];
   const structuredData = {
     "@context": "https://schema.org",
@@ -96,14 +96,14 @@ export default async function Home({ searchParams }: Props) {
       {
         "@type": "WebSite",
         "@id": `${url}/#website`,
-        name: "SpiderRoute",
+        name: "Rekordis",
         url,
         inLanguage: locale,
       },
       {
         "@type": "WebApplication",
-        name: "SpiderRoute",
-        url: "https://app.spiderroute.com",
+        name: "Rekordis",
+        url: "https://app.rekordis.com",
         description: t.description,
         applicationCategory: "TravelApplication",
         operatingSystem: "Web browser",
@@ -122,7 +122,7 @@ export default async function Home({ searchParams }: Props) {
         }}
       />
       <header className="site-header">
-        <a href="/" aria-label="SpiderRoute">
+        <a href="/" aria-label="Rekordis">
           <Brand />
         </a>
         <nav>
@@ -136,8 +136,8 @@ export default async function Home({ searchParams }: Props) {
               local
                 ? `/?lang=${ru ? "en" : "ru"}`
                 : ru
-                  ? "https://spiderroute.com"
-                  : "https://ru.spiderroute.com"
+                  ? "https://rekordis.com"
+                  : "https://ru.rekordis.com"
             }
           >
             {ru ? "EN" : "RU"}
@@ -306,8 +306,8 @@ export default async function Home({ searchParams }: Props) {
           <ShareLink
             url={`${url}/`}
             locale={locale}
-            name="spiderroute-website"
-            title={ru ? "SpiderRoute в браузере" : "SpiderRoute on the web"}
+            name="rekordis-website"
+            title={ru ? "Rekordis в браузере" : "Rekordis on the web"}
             description={
               ru
                 ? "Сканируйте, чтобы открыть сайт на другом устройстве."
@@ -315,15 +315,15 @@ export default async function Home({ searchParams }: Props) {
             }
           >
             <a className="text-link" href={`${url}/`}>
-              {ru ? "ru.spiderroute.com" : "spiderroute.com"}{" "}
+              {ru ? "ru.rekordis.com" : "rekordis.com"}{" "}
               <ArrowUpRight size={15} aria-hidden="true" />
             </a>
           </ShareLink>
           <ShareLink
             url={APP_STORE_URL}
             locale={locale}
-            name="spiderroute-app"
-            title={ru ? "SpiderRoute для iPhone" : "SpiderRoute for iPhone"}
+            name="rekordis-app"
+            title={ru ? "Rekordis для iPhone" : "Rekordis for iPhone"}
             description={
               ru
                 ? "Сканируйте, чтобы открыть приложение в App Store."
@@ -334,7 +334,7 @@ export default async function Home({ searchParams }: Props) {
           </ShareLink>
         </div>
         <Brand />
-        <span>© {new Date().getFullYear()} SpiderRoute</span>
+        <span>© {new Date().getFullYear()} Rekordis</span>
         <a href="/privacy">{t.privacy}</a>
         <SpeedometerLink locale={locale} />
         <a href="mailto:hello@spiderroute.com">hello@spiderroute.com</a>

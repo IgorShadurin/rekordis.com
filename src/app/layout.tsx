@@ -7,12 +7,12 @@ import { cookies, headers } from "next/headers";
 import "./globals.css";
 export const metadata: Metadata = {
   title: {
-    default: "SpiderRoute — Bike & scooter route editor",
-    template: "%s · SpiderRoute",
+    default: "Rekordis — Bike & scooter route editor",
+    template: "%s · Rekordis",
   },
   description:
     "View, edit and share bike, e-bike and scooter routes. Add ride notes and export your GPS tracks.",
-  metadataBase: new URL("https://spiderroute.com"),
+  metadataBase: new URL("https://rekordis.com"),
 };
 export default async function RootLayout({
   children,

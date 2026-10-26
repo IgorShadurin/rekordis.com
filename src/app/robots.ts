@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/workspace", "/s/", "/api/", "/sets$"],
     },
-    sitemap: "https://spiderroute.com/sitemap.xml",
+    sitemap: "https://rekordis.com/sitemap.xml",
   };
 }

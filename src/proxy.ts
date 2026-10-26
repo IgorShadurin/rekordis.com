@@ -1,16 +1,19 @@
 import { NextResponse, type NextRequest } from "next/server";
 export function proxy(req: NextRequest) {
-  const host = (req.headers.get("host") || req.nextUrl.hostname).split(":")[0];
-  if (host === "www.spiderroute.com")
+  const host = (req.headers.get("host") || req.nextUrl.hostname)
+    .toLowerCase()
+    .split(":")[0]
+    .replace(/(^|\.)spiderroute\.com$/, "$1rekordis.com");
+  if (host === "www.rekordis.com")
     return NextResponse.redirect(
       new URL(
         req.nextUrl.pathname + req.nextUrl.search,
-        "https://spiderroute.com",
+        "https://rekordis.com",
       ),
       308,
     );
   if (
-    ["spiderroute.com", "ru.spiderroute.com"].includes(host) &&
+    ["rekordis.com", "ru.rekordis.com"].includes(host) &&
     (req.nextUrl.pathname.startsWith("/workspace") ||
       req.nextUrl.pathname.startsWith("/s/") ||
       req.nextUrl.pathname.startsWith("/r/") ||
@@ -20,7 +23,7 @@ export function proxy(req: NextRequest) {
   ) {
     const target = new URL(
       req.nextUrl.pathname + req.nextUrl.search,
-      "https://app.spiderroute.com",
+      "https://app.rekordis.com",
     );
     if (host.startsWith("ru.")) target.searchParams.set("lang", "ru");
     return NextResponse.redirect(target, 307);
@@ -38,7 +41,7 @@ export function proxy(req: NextRequest) {
     target.search = "";
     return NextResponse.redirect(target, 307);
   }
-  if (host === "app.spiderroute.com" && req.nextUrl.pathname === "/workspace") {
+  if (host === "app.rekordis.com" && req.nextUrl.pathname === "/workspace") {
     const target = req.nextUrl.clone();
     target.pathname = "/";
     return NextResponse.redirect(target, 307);

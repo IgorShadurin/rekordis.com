@@ -26,7 +26,7 @@ export function GET(
             req.headers.get("host") ?? req.nextUrl.hostname,
           ),
         ),
-        "https://app.spiderroute.com",
+        "https://app.rekordis.com",
       ),
       307,
     );

@@ -1,14 +1,16 @@
-# SpiderRoute
+# Rekordis
 
-Keep the rides you want to do again, and make them easy to share. SpiderRoute helps you turn a GPS recording into a route a friend can follow: tidy up the track, mark a good stop or a stretch worth remembering, and send a map they can open on their phone without signing in.
+Rekordis is the new product name in this existing repository. The original landing design is retained. This source rebrand is pending deployment; see [migration notes](docs/deployment.md#rekordis-source-rebrand-not-deployed).
+
+Keep the rides you want to do again, and make them easy to share. Rekordis helps you turn a GPS recording into a route a friend can follow: tidy up the track, mark a good stop or a stretch worth remembering, and send a map they can open on their phone without signing in.
 
 Bring a route from your cycling app or GPS device, or draw one yourself. Add a ride video to connect places on the map with moments in the footage. Your routes stay in your own library until you choose to share them.
 
-[Open SpiderRoute](https://app.spiderroute.com/) · [Visit the website](https://spiderroute.com/) · [Русская версия](https://ru.spiderroute.com/)
+[Open Rekordis](https://app.rekordis.com/) · [Visit the website](https://rekordis.com/) · [Русская версия](https://ru.rekordis.com/)
 
-![SpiderRoute in English, showing a sample Thames route with a highlighted section and a photo-stop marker](docs/images/spiderroute-en.png)
+![The original SpiderRoute interface in English, showing a sample Thames route with a highlighted section and a photo-stop marker](docs/images/spiderroute-en.png)
 
-*The real app in English, captured without browser controls. The sample route follows the Thames in London; its notes are illustrative. Map data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright).*
+*The original interface before the Rekordis name change, captured without browser controls. The sample route follows the Thames in London; its notes are illustrative. Map data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright).*
 
 ## What you can do
 
@@ -42,7 +44,7 @@ The source is available here for you to inspect and run yourself. The operationa
 
 ## License
 
-Copyright 2026 Igor Shadurin. SpiderRoute’s original source code is licensed under the [Apache License 2.0](LICENSE).
+Copyright 2026 Igor Shadurin. Rekordis’s original source code is licensed under the [Apache License 2.0](LICENSE).
 
 Third-party dependencies and assets retain their respective licenses. OpenStreetMap data and derived route geometry remain under ODbL; see the [map asset attribution](public/maps/README.md).
 
@@ -67,7 +69,7 @@ Then start the app:
 npm run dev
 ```
 
-Open [the local workspace](http://localhost:3210/workspace). The local landing page is at [localhost:3210](http://localhost:3210/); add `?lang=ru` to preview it in Russian. On the hosted app, the workspace lives at [app.spiderroute.com](https://app.spiderroute.com/).
+Open [the local workspace](http://localhost:3210/workspace). The local landing page is at [localhost:3210](http://localhost:3210/); add `?lang=ru` to preview it in Russian. On the hosted app, the workspace lives at [app.rekordis.com](https://app.rekordis.com/).
 
 For a local test account:
 

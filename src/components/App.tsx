@@ -442,8 +442,8 @@ function Workspace({
       document.title = route
         ? routePageTitle(route.title)
         : locale === "ru"
-          ? "Ваши маршруты · SpiderRoute"
-          : "Your routes · SpiderRoute";
+          ? "Ваши маршруты · Rekordis"
+          : "Your routes · Rekordis";
   }, [route?.title, locale, token]);
   useEffect(() => {
     if (!dirty || titleEditing || shareOpen || !route || route.id === "new")
@@ -1281,7 +1281,7 @@ function Workspace({
               © OpenStreetMap contributors
             </a>
             <div>
-              <span className="eyebrow">SPIDERROUTE</span>
+              <span className="eyebrow">REKORDIS</span>
               <h2>{t.tagline}</h2>
             </div>
           </div>

@@ -9,7 +9,7 @@ export function routePageTitle(name: string, locale?: Locale) {
     .trim();
   const suffix = locale
     ? ` · ${locale === "ru" ? "Веломаршрут" : "Cycling route"}`
-    : " · SpiderRoute";
+    : " · Rekordis";
   const nameLimit = (locale ? 70 : 74) - Array.from(suffix).length;
   const chars = Array.from(clean || (locale === "ru" ? "Маршрут" : "Route"));
   const title =

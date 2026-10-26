@@ -5,7 +5,7 @@ async function youtubeText(url: string) {
   const response = await fetch(url, {
     redirect: "error",
     signal: AbortSignal.timeout(7000),
-    headers: { "User-Agent": "SpiderRoute/1.0", "Accept-Language": "en" },
+    headers: { "User-Agent": "Rekordis/1.0", "Accept-Language": "en" },
   });
   if (!response.ok || !response.body) throw Error("unavailable");
   const reader = response.body.getReader();
