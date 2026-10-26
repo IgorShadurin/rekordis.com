@@ -171,7 +171,7 @@ const seoText = (value: string, limit: number) => {
 export function setSeoTitle(set: ItemSet) {
   return set.metaTitle.trim()
     ? seoText(set.metaTitle, 70)
-    : `${seoText(set.title, 56)} · Rekordis`;
+    : `${seoText(set.title, 56)} · ${set.locale === "ru" ? "Рекордис" : "Rekordis"}`;
 }
 export function setDescription(set: ItemSet) {
   if (set.metaDescription.trim()) return seoText(set.metaDescription, 160);

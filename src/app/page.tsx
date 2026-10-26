@@ -20,6 +20,7 @@ import { LandingLanguage } from "@/components/LandingLanguage";
 import { ShareLink } from "@/components/ShareLink";
 import { APP_STORE_URL } from "@/lib/links";
 import { Brand } from "@/components/Brand";
+import { brandName, brandKeywords } from "@/lib/brand-metadata";
 import { landingCopy } from "@/lib/landing";
 
 type Props = { searchParams: Promise<{ lang?: string }> };
@@ -42,6 +43,7 @@ export async function generateMetadata({
   return {
     title: { absolute: t.title },
     description: t.description,
+    keywords: brandKeywords(locale),
     alternates: {
       canonical: url,
       languages: {
@@ -56,7 +58,7 @@ export async function generateMetadata({
     openGraph: {
       type: "website",
       url,
-      siteName: "Rekordis",
+      siteName: brandName(locale),
       title: t.title,
       description: t.description,
       locale: locale === "ru" ? "ru_RU" : "en_US",

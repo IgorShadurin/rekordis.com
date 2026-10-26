@@ -5,6 +5,7 @@ import { authOptions } from "./auth";
 import { sql } from "./db";
 import { LANGUAGE_KEY, resolveLocale, validLocale } from "@/lib/language";
 import { owned } from "./routes";
+import { brandKeywords } from "@/lib/brand-metadata";
 import { routePageTitle } from "@/lib/route-details";
 
 export const workspaceAccount = cache(async () => {
@@ -26,16 +27,19 @@ export async function workspaceMetadata(routeId?: string) {
   const locale =
     account.locale ?? resolveLocale((await cookies()).get(LANGUAGE_KEY)?.value);
   let title =
-    locale === "ru"
-      ? "Ваши маршруты · Rekordis"
-      : "Your routes · Rekordis";
+    locale === "ru" ? "Ваши маршруты · Рекордис" : "Your routes · Rekordis";
   if (routeId && account.id) {
     try {
-      title = routePageTitle(owned(routeId, account.id).title);
+      title = routePageTitle(
+        owned(routeId, account.id).title,
+        undefined,
+        locale,
+      );
     } catch {}
   }
   return {
     title: { absolute: title },
+    keywords: brandKeywords(locale),
     robots: { index: false, follow: false },
   };
 }

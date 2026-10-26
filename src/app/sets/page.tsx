@@ -1,3 +1,4 @@
+import { brandKeywords, brandName } from "@/lib/brand-metadata";
 import { getServerSession } from "next-auth";
 import { cookies } from "next/headers";
 import { authOptions } from "@/server/auth";
@@ -11,7 +12,10 @@ export async function generateMetadata() {
   const locale =
     account.locale || resolveLocale((await cookies()).get(LANGUAGE_KEY)?.value);
   return {
-    title: locale === "ru" ? "Мои наборы" : "My sets",
+    title: {
+      absolute: `${locale === "ru" ? "Мои наборы" : "My sets"} · ${brandName(locale)}`,
+    },
+    keywords: brandKeywords(locale),
     robots: { index: false, follow: false },
   };
 }

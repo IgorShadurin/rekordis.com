@@ -1,6 +1,11 @@
 import type { Locale } from "./types";
+import { brandName } from "./brand-metadata";
 
-export function routePageTitle(name: string, locale?: Locale) {
+export function routePageTitle(
+  name: string,
+  locale?: Locale,
+  brandLocale: Locale = "en",
+) {
   const clean = name
     .normalize("NFC")
     .replace(/[\u0000-\u001f\u007f-\u009f]/g, " ")
@@ -9,9 +14,11 @@ export function routePageTitle(name: string, locale?: Locale) {
     .trim();
   const suffix = locale
     ? ` · ${locale === "ru" ? "Веломаршрут" : "Cycling route"}`
-    : " · Rekordis";
+    : ` · ${brandName(brandLocale)}`;
   const nameLimit = (locale ? 70 : 74) - Array.from(suffix).length;
-  const chars = Array.from(clean || (locale === "ru" ? "Маршрут" : "Route"));
+  const chars = Array.from(
+    clean || ((locale ?? brandLocale) === "ru" ? "Маршрут" : "Route"),
+  );
   const title =
     chars.length > nameLimit
       ? chars

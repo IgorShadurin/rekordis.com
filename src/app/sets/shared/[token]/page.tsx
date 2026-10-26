@@ -1,3 +1,4 @@
+import { brandKeywords } from "@/lib/brand-metadata";
 import { PublicSetContent } from "@/components/PublicSetContent";
 import { setAuthor } from "@/server/profiles";
 import type { Metadata } from "next";
@@ -35,6 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     : [];
   return {
     title: { absolute: title },
+    keywords: brandKeywords(set.locale),
     description,
     alternates: { canonical: url },
     robots: { index: true, follow: true },

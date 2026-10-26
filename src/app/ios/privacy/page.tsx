@@ -4,7 +4,7 @@ import { Brand } from "@/components/Brand";
 export async function generateMetadata() {
   const ru = (await headers()).get("host")?.startsWith("ru.");
   return {
-    title: ru ? "Конфиденциальность приложения Rekordis" : "Rekordis iOS Privacy Policy",
+    title: { absolute: ru ? "Конфиденциальность приложения Рекордис" : "Rekordis iOS Privacy Policy" },
     description: ru
       ? "Обработка данных в приложении Rekordis для iPhone и iPad."
       : "How the Rekordis iPhone and iPad app handles rides, location, purchases and video.",
@@ -23,7 +23,7 @@ export default async function IOSPrivacy() {
   return (
     <main className="legal">
       <a href="/"><Brand /></a>
-      <h1>{ru ? "Конфиденциальность приложения Rekordis" : "Rekordis iOS Privacy Policy"}</h1>
+      <h1>{ru ? "Конфиденциальность приложения Рекордис" : "Rekordis iOS Privacy Policy"}</h1>
       <p>{ru ? "Обновлено 18 октября 2026 г. Эта страница относится к приложению Rekordis для iPhone и iPad (com.wowcoded.speedometergps). Для сайта действует отдельная политика." : "Updated October 18, 2026. This policy covers the Rekordis app for iPhone and iPad (com.wowcoded.speedometergps). The Rekordis website has a separate privacy policy."}</p>
 
       <h2>{ru ? "Маршруты и местоположение" : "Rides and location"}</h2>

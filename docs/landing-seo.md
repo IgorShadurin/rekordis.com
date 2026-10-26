@@ -4,7 +4,7 @@ The page describes the current product: a GPS route viewer/editor for bike, e-bi
 
 The English copy targets the intents “bike route map”, “scooter routes”, “GPX viewer” and “GPX editor”. Russian copy addresses “веломаршруты”, “маршруты на самокате”, “GPS-трек” and route editing. These are relevance choices based on the available features, not measured search-volume claims. Format descriptions explain GPX, KML, GeoJSON and the actual supported CSV column names.
 
-Each landing host has a localized title, description, canonical, reciprocal en/ru/x-default links, Open Graph and Twitter summary card. The sitemap includes both language URLs. WebSite and WebApplication structured data describe real features without fabricated ratings or offers. Workspace and shared-route pages remain noindex.
+Each landing host has a localized title, description, keywords, canonical, reciprocal en/ru/x-default links, Open Graph and Twitter summary card. Russian titles use «Рекордис» and Russian keywords include both «Рекордис» and «Rekordis». English titles and keywords use only the English brand name. The same title-brand rule applies to the app workspace and its generated route, collection and settings titles. The sitemap includes both language URLs. WebSite and WebApplication structured data describe real features without fabricated ratings or offers. Workspace and shared-route pages remain noindex.
 
 Google's guidance favors descriptive titles and concise page summaries, and explicitly says the meta-keywords tag is not used for ranking:
 

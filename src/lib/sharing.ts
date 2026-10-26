@@ -1,3 +1,4 @@
+import { brandKeywords, brandName } from "./brand-metadata";
 import type { Metadata } from "next";
 import type { Locale } from "./types";
 import { routePageTitle } from "./route-details";
@@ -54,6 +55,7 @@ export function sharedMetadata(
   };
   return {
     title: { absolute: title },
+    keywords: brandKeywords(locale),
     description,
     robots: { index: false, follow: false },
     referrer: "strict-origin-when-cross-origin",
@@ -70,7 +72,7 @@ export function sharedMetadata(
       title,
       description,
       url,
-      siteName: "Rekordis",
+      siteName: brandName(locale),
       locale: ru ? "ru_RU" : "en_US",
       alternateLocale: ru ? "en_US" : "ru_RU",
       images: [image],

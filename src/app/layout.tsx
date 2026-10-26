@@ -5,15 +5,29 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { THEME_KEY, resolveTheme } from "@/lib/theme";
 import { cookies, headers } from "next/headers";
 import "./globals.css";
-export const metadata: Metadata = {
-  title: {
-    default: "Rekordis — Bike & scooter route editor",
-    template: "%s · Rekordis",
-  },
-  description:
-    "View, edit and share bike, e-bike and scooter routes. Add ride notes and export your GPS tracks.",
-  metadataBase: new URL("https://rekordis.com"),
-};
+import { brandName, brandKeywords } from "@/lib/brand-metadata";
+export async function generateMetadata(): Promise<Metadata> {
+  const h = await headers();
+  const locale =
+    h.get("x-spiderroute-locale") === "ru" || h.get("host")?.startsWith("ru.")
+      ? "ru"
+      : "en";
+  return {
+    title: {
+      default:
+        locale === "ru"
+          ? "Рекордис — редактор веломаршрутов и поездок на самокате"
+          : "Rekordis — Bike & scooter route editor",
+      template: `%s · ${brandName(locale)}`,
+    },
+    keywords: brandKeywords(locale),
+    description:
+      locale === "ru"
+        ? "Просматривайте, редактируйте и делитесь маршрутами для велосипедов, электровелосипедов и самокатов. Добавляйте заметки и экспортируйте GPS-треки."
+        : "View, edit and share bike, e-bike and scooter routes. Add ride notes and export your GPS tracks.",
+    metadataBase: new URL("https://rekordis.com"),
+  };
+}
 export default async function RootLayout({
   children,
 }: {

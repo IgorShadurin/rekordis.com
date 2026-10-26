@@ -56,6 +56,7 @@ import {
   validVideoTimes,
 } from "@/lib/video-time";
 import { privateRoutePath, routeIdFromUrl } from "@/lib/navigation";
+import { brandKeywords } from "@/lib/brand-metadata";
 import { routePageTitle } from "@/lib/route-details";
 import { routeEndpoints } from "@/lib/endpoints";
 import { activeVideoAnnotations } from "@/lib/video-sync";
@@ -440,10 +441,13 @@ function Workspace({
   useEffect(() => {
     if (!token)
       document.title = route
-        ? routePageTitle(route.title)
+        ? routePageTitle(route.title, undefined, locale)
         : locale === "ru"
-          ? "Ваши маршруты · Rekordis"
+          ? "Ваши маршруты · Рекордис"
           : "Your routes · Rekordis";
+    document
+      .querySelector<HTMLMetaElement>('meta[name="keywords"]')
+      ?.setAttribute("content", brandKeywords(locale).join(","));
   }, [route?.title, locale, token]);
   useEffect(() => {
     if (!dirty || titleEditing || shareOpen || !route || route.id === "new")
