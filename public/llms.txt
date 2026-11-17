@@ -1,0 +1,20 @@
+# Rekordis
+
+> Rekordis is a route editor for bikes, e-bikes and scooters. Import GPS tracks, refine routes, add notes and video moments, and share maps that visitors can open without signing in.
+
+## Product
+
+- [Website](https://rekordis.com/): Product overview.
+- [Route editor](https://app.rekordis.com/): Create and manage your route library.
+- [Russian website](https://ru.rekordis.com/): Russian product overview.
+- [Source and documentation](https://github.com/IgorShadurin/rekordis.com): Features, development, deployment, and privacy documentation.
+
+Routes support GPX, KML, GeoJSON and CSV import and export. Users can edit tracks, attach notes and YouTube video moments, and choose whether to share a route. Public maps do not require visitor registration. Maps and embedded videos require an internet connection.
+
+## Author
+
+Created by Ihar Shaduryn, also known as Igor Shadurin, a software engineer building web tools, native apps, and open-source projects.
+
+- [GitHub](https://github.com/IgorShadurin/): Public projects and repositories.
+- [CV, professional experience and projects](https://github.com/IgorShadurin/IgorShadurin/blob/main/EXPERIENCE.md): The existing GitHub career profile.
+- [Portfolio](https://shadurin.com/): Current projects and their links.
